@@ -191,7 +191,7 @@ M.set_cursor_line_highlight = function(hl_name)
   local hl = vim.tbl_extend('force', options.highlights.defaults, hl_group)
   if options.highlights.use_cursorline_background == true then
     local cl = require('modicator.utils').get_highlight('CursorLine')
-    hl = vim.tbl_extend('keep', { bg = cl.bg }, hl)
+    hl = vim.tbl_extend('keep', { bg = cl.fg, fg = cl.bg }, hl)
   end
   api.nvim_set_hl(0, 'CursorLineNr', hl)
 
